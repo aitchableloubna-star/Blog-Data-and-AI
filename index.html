@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data & AI | CASANET</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -17,17 +17,17 @@
         body, html {
             width: 100%;
             height: 100%;
-            background-color: #ffffff; /* Fond blanc lumineux */
-            color: #0f172a; /* Texte sombre pour un contraste net */
+            background-color: #f8fafc; /* Fond de secours doux et clair */
+            color: #0f172a; 
             overflow: hidden; 
         }
 
-        /* --- THE CURSOR FOLLOWER EFFECT (Adapté pour fond clair) --- */
+        /* --- INTERACTIVE CURSOR EFFECT --- */
         .cursor-follower {
             width: 30px;
             height: 30px;
-            background-color: rgba(0, 98, 255, 0.08); /* Teinte bleue très légère */
-            border: 1px solid rgba(0, 98, 255, 0.3);   /* Bordure bleue subtile */
+            background-color: rgba(0, 98, 255, 0.08);
+            border: 1px solid rgba(0, 98, 255, 0.3);
             border-radius: 50%;
             position: fixed;
             pointer-events: none; 
@@ -38,7 +38,7 @@
             transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
-        /* IMAGE DE FOND ACCENTUÉE */
+        /* BACKGROUND HERO IMAGE */
         .hero {
             position: relative;
             width: 100%;
@@ -52,18 +52,18 @@
             background-repeat: no-repeat;
         }
 
-        /* Voile blanc éclaircissant au lieu du noir */
+        /* Voile blanc général léger pour illuminer l'image */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.55); /* Illumine l'arrière-plan */
+            background: rgba(255, 255, 255, 0.4); 
             z-index: 1;
         }
 
-        /* NAVIGATION CLAIRE */
+        /* NAVIGATION BAR */
         .navbar {
             position: fixed;
             top: 0;
@@ -73,9 +73,9 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.3); /* Flou translucide blanc */
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .logo-container {
@@ -87,8 +87,6 @@
         .logo-img {
             height: 60px;
             width: auto;
-            /* mix-blend-mode supprimé pour s'adapter parfaitement au fond blanc */
-            filter: brightness(1);
             transition: transform 0.3s ease;
         }
 
@@ -102,7 +100,7 @@
         }
 
         .menu a {
-            color: #0f172a; /* Liens noirs */
+            color: #1e293b;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
@@ -111,63 +109,70 @@
         }
 
         .menu a:hover {
-            color: #0062ff; /* Accentuation bleue au survol */
+            color: #0062ff;
         }
 
-        /* CONTENU CENTRAL LUMINEUX */
-        .content {
-            text-align: center;
+        /* --- BLOC CENTRAL CRÉATIF POUR UNE LISIBILITÉ MAXIMALE --- */
+        .content-box {
             z-index: 10;
-            padding: 0 20px;
-            width: 100%;
+            background: rgba(255, 255, 255, 0.75); /* Cadre blanc semi-transparent */
+            backdrop-filter: blur(20px); /* Floute l'image de fond uniquement derrière le texte */
+            -webkit-backdrop-filter: blur(20px);
+            padding: 60px 50px;
+            border-radius: 24px;
+            max-width: 850px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); /* Ombre douce professionnelle */
+            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .content h1 {
-            font-size: clamp(2rem, 8vw, 5.5rem); 
+        .content-box h1 {
+            font-size: clamp(2.2rem, 6vw, 4.5rem); 
             font-weight: 900;
             margin-bottom: 20px;
             text-transform: uppercase;
-            white-space: nowrap;
-            /* Superbe dégradé de bleus technologiques et clairs */
-            background: linear-gradient(to bottom, #0062ff, #4da6ff);
+            letter-spacing: -1px;
+            /* Dégradé contrasté et net */
+            background: linear-gradient(135deg, #004fe0, #00a2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 20px rgba(255,255,255,0.8));
         }
 
-        .content p {
-            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-            max-width: 800px;
-            margin: 0 auto;
-            color: #334155; /* Gris anthracite très élégant et lisible */
-            letter-spacing: 1px;
+        .content-box p {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: #334155; /* Couleur sombre très lisible */
+            line-height: 1.6;
             font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 40px;
-            padding: 16px 40px;
-            background: #0062ff; /* Bouton bleu royal pour ressortir sur le blanc */
+            margin-top: 35px;
+            padding: 16px 45px;
+            background: #0062ff; 
             color: #ffffff;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.4s;
-            box-shadow: 0 10px 25px rgba(0, 98, 255, 0.25);
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 98, 255, 0.3);
         }
 
         .btn:hover {
-            background: #0f172a; /* Passe au noir pur au survol */
-            color: #ffffff;
+            background: #0f172a; 
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
         }
 
         @media (max-width: 768px) {
             .cursor-follower { display: none; }
+            .content-box { padding: 40px 20px; }
         }
 
     </style>
@@ -192,7 +197,7 @@
             </div>
         </nav>
 
-        <div class="content">
+        <div class="content-box">
             <h1>DATA & AI</h1>
             <p>Solutions digitales innovantes pour transformer vos données en performance réelle.</p>
             <a href="blog.html" class="btn">Découvrir le Blog</a>
