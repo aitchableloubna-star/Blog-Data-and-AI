@@ -17,17 +17,17 @@
         body, html {
             width: 100%;
             height: 100%;
-            background-color: #000;
-            color: white;
+            background-color: #ffffff; /* Fond blanc lumineux */
+            color: #0f172a; /* Texte sombre pour un contraste net */
             overflow: hidden; 
         }
 
-        /* --- THE CURSOR FOLLOWER EFFECT (Transparent White) --- */
+        /* --- THE CURSOR FOLLOWER EFFECT (Adapté pour fond clair) --- */
         .cursor-follower {
             width: 30px;
             height: 30px;
-            background-color: rgba(255, 255, 255, 0.15); /* Light White Transparent */
-            border: 1px solid rgba(255, 255, 255, 0.4);   /* Subtle border */
+            background-color: rgba(0, 98, 255, 0.08); /* Teinte bleue très légère */
+            border: 1px solid rgba(0, 98, 255, 0.3);   /* Bordure bleue subtile */
             border-radius: 50%;
             position: fixed;
             pointer-events: none; 
@@ -35,11 +35,10 @@
             left: 0;
             top: 0;
             transform: translate(-50%, -50%);
-            /* Using a slightly longer transition for a "heavy/smooth" feel */
             transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
-        /* IMAGE DE FOND */
+        /* IMAGE DE FOND ACCENTUÉE */
         .hero {
             position: relative;
             width: 100%;
@@ -53,17 +52,18 @@
             background-repeat: no-repeat;
         }
 
+        /* Voile blanc éclaircissant au lieu du noir */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.55); /* Illumine l'arrière-plan */
             z-index: 1;
         }
 
-        /* NAVIGATION */
+        /* NAVIGATION CLAIRE */
         .navbar {
             position: fixed;
             top: 0;
@@ -73,9 +73,9 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.3); /* Flou translucide blanc */
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .logo-container {
@@ -87,8 +87,8 @@
         .logo-img {
             height: 60px;
             width: auto;
-            mix-blend-mode: screen; 
-            filter: brightness(1.2);
+            /* mix-blend-mode supprimé pour s'adapter parfaitement au fond blanc */
+            filter: brightness(1);
             transition: transform 0.3s ease;
         }
 
@@ -102,7 +102,7 @@
         }
 
         .menu a {
-            color: #fff;
+            color: #0f172a; /* Liens noirs */
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
@@ -111,10 +111,10 @@
         }
 
         .menu a:hover {
-            color: #4da6ff;
+            color: #0062ff; /* Accentuation bleue au survol */
         }
 
-        /* CONTENU CENTRAL */
+        /* CONTENU CENTRAL LUMINEUX */
         .content {
             text-align: center;
             z-index: 10;
@@ -128,40 +128,42 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             white-space: nowrap;
-            background: linear-gradient(to bottom, #fff, #4da6ff);
+            /* Superbe dégradé de bleus technologiques et clairs */
+            background: linear-gradient(to bottom, #0062ff, #4da6ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 4px 20px rgba(255,255,255,0.8));
         }
 
         .content p {
             font-size: clamp(0.9rem, 1.5vw, 1.2rem);
             max-width: 800px;
             margin: 0 auto;
-            color: rgba(255, 255, 255, 0.9);
+            color: #334155; /* Gris anthracite très élégant et lisible */
             letter-spacing: 1px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .btn {
             display: inline-block;
             margin-top: 40px;
             padding: 16px 40px;
-            background: #4da6ff;
-            color: #fff;
+            background: #0062ff; /* Bouton bleu royal pour ressortir sur le blanc */
+            color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0, 98, 255, 0.25);
         }
 
         .btn:hover {
-            background: #fff;
-            color: #000;
+            background: #0f172a; /* Passe au noir pur au survol */
+            color: #ffffff;
             transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
         }
 
         @media (max-width: 768px) {
@@ -206,7 +208,6 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             
-            // Using requestAnimationFrame for high-performance rendering
             requestAnimationFrame(() => {
                 follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
             });
