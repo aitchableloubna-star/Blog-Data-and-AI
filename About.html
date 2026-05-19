@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos | Casanet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg: #030712;
-            --glass: rgba(15, 23, 42, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
-            --accent: #4da6ff;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --light-bg: #ffffff;
+            --card-white: rgba(255, 255, 255, 0.85); /* Fond blanc protecteur bento */
+            --border: rgba(0, 0, 0, 0.06);
+            --accent-blue: #0062ff; /* Bleu royal intense */
+            --text-dark: #000000; /* Noir pur pour lisibilité maximale */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 
         body { 
-            background: radial-gradient(circle at top right, #1e293b, #030712);
-            background-image: linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)), url('image_a9345f.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            color: var(--text-main);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            /* Voile blanc lumineux sur l'image de fond */
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+                        url('image_a9345f.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
-        /* --- THE CURSOR FOLLOWER EFFECT --- */
+        /* --- THE CURSOR FOLLOWER EFFECT (VERSION CLAIRE) --- */
         .cursor-follower {
             width: 30px;
             height: 30px;
-            background-color: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 50%;
             position: fixed;
             pointer-events: none; 
@@ -43,18 +45,19 @@
             transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1); 
         }
 
-        /* NAVIGATION AVEC LOGO FIXÉ */
+        /* NAVIGATION CLAIRE */
         .nav {
             padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(3, 7, 18, 0.6);
+            background: rgba(255, 255, 255, 0.4);
         }
 
         .logo-container {
@@ -67,46 +70,56 @@
             height: 50px; 
             width: auto;
             display: block;
-            mix-blend-mode: multiply; 
-            filter: brightness(1.1) contrast(1.1);
+            filter: brightness(1);
         }
 
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { 
-            color: white; 
+            color: var(--text-dark); 
             text-decoration: none; 
-            font-weight: 600; 
+            font-weight: 700; 
             font-size: 0.95rem; 
             transition: 0.3s;
         }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a.active { color: var(--accent); }
+        .nav-links a:hover { color: var(--accent-blue); }
+        .nav-links a.active { color: var(--accent-blue); }
 
-        /* HERO SECTION */
+        /* HERO SECTION IMPACTANTE */
         .hero {
             padding: 100px 8% 60px;
             text-align: center;
         }
 
+        .hero h2 { 
+            color: #002b80; /* Bleu profond */
+            font-size: 0.85rem; 
+            font-weight: 900;
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin-bottom: 15px; 
+        }
+
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -1px;
-            background: linear-gradient(to bottom, #fff, var(--accent));
+            /* Dégradé de bleus premium */
+            background: linear-gradient(to bottom, #002b80, var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 700;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        /* BENTO GRID */
+        /* BENTO GRID GRAPHIC & LIGHT */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -117,41 +130,64 @@
         }
 
         .bento-item {
-            background: var(--glass);
+            background: var(--card-white);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 35px;
             backdrop-filter: blur(20px);
-            transition: all 0.5s ease;
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
         }
 
         .bento-item:hover {
-            border-color: var(--accent);
+            border-color: var(--accent-blue);
             transform: translateY(-5px);
-            background: rgba(30, 41, 59, 0.5);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 40px rgba(0, 98, 255, 0.06);
+        }
+
+        .bento-item p {
+            font-weight: 700; /* Texte noir bien gras */
         }
 
         .wide { grid-column: span 2; }
         .tall { grid-row: span 2; }
 
-        h2 { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-        h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #fff; }
+        h3 { 
+            font-size: 1.6rem; 
+            margin-bottom: 15px; 
+            font-weight: 900; 
+            color: #002b80; /* Titre des Bento boxes */
+        }
         
+        /* STYLE DES LISTES DE SERVICES */
         .service-list { list-style: none; margin-top: 20px; }
         .service-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             display: flex;
             align-items: center;
-            color: var(--text-muted);
+            color: var(--text-dark);
+            font-weight: 700;
         }
-        .service-list li::before { content: "→"; color: var(--accent); margin-right: 12px; font-weight: bold; }
+        .service-list li::before { 
+            content: "→"; 
+            color: var(--accent-blue); 
+            margin-right: 12px; 
+            font-weight: 900; 
+            font-size: 1.1rem;
+        }
 
+        /* FIN DE GRILLE BENTO METTANT EN VALEUR LA VISION */
         .vision-footer {
             grid-column: span 3;
-            background: linear-gradient(90deg, rgba(77,166,255,0.05), transparent);
-            border: 1px solid var(--accent);
+            background: linear-gradient(90deg, rgba(0, 98, 255, 0.04), transparent);
+            border: 1px solid var(--accent-blue);
             text-align: center;
+        }
+        .vision-footer h3 {
+            color: var(--accent-blue);
         }
 
         @media (max-width: 1024px) {
@@ -213,7 +249,7 @@
 
         <div class="bento-item vision-footer">
             <h3>Vision & Importance</h3>
-            <p>Aspire à renforcer la position du Maroc dans le domaine numérique et contribue fortement à la modernisation du secteur en devenant un acteur majeur de l’innovation en Afrique.</p>
+            <p>Aspire à renforcer la position du Maroc dans le domaine numérique et contribue fortement à la modernisation du secteur en devenant un actor majeur de l’innovation en Afrique.</p>
         </div>
 
     </main>
